@@ -6,12 +6,35 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import postcss from "rollup-plugin-postcss";
+import sveltePreprocess from "svelte-preprocess";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
+
+const postcssOptions = () => ({
+  extensions: ['.scss', '.sass'],
+  extract: false,
+  minimze: true,
+  use: [
+    [
+      'sass',
+      {
+        includePaths: [
+          './src/components',
+          './node_modules'
+        ]
+      }
+    ]
+  ]
+})
+
+const preprocess = sveltePreprocess({
+  plugins: [require('autoprefixer')]
+})
 
 export default {
 	client: {
@@ -33,6 +56,7 @@ export default {
 				dedupe: ['svelte']
 			}),
       commonjs(),
+      postcss(postcssOptions()),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -68,6 +92,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
+        preprocess,
 				generate: 'ssr',
 				dev
 			}),
@@ -75,6 +100,7 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
+      postcss(postcssOptions())
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
