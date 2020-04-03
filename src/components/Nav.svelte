@@ -12,6 +12,10 @@
     padding: 0 1em;
     border-bottom: 1px solid var(--dark-border);
 
+    a {
+      padding: 1em;
+    }
+
     ul {
       flex-direction: row;
 
@@ -29,11 +33,17 @@
 
     ul {
       flex-direction: column;
+      margin-right: 1em;
+
+      a {
+        padding: 1em 0;
+        width: 100%;
+      }
 
       a[aria-current]::after {
         height: calc(100% - 1em);
         width: 5px;
-        right: -4px;
+        right: -1em;
         top: 15%;
       }
     }
@@ -49,7 +59,6 @@
 
       a {
         text-decoration: none;
-        padding: 1em;
         display: block;
 
         &[aria-current] {
