@@ -10,7 +10,6 @@
   let navitems = [
     {rel: 'prefetch', route: 'about', label: 'About'},
     {rel: 'prefetch', route: 'blog', label: 'Blog'},
-    {route: 'https://google.com', label: 'Find something on google'}
   ] 
 </script>
 
@@ -31,6 +30,7 @@
 
     main {
       padding: 2em;
+      flex-grow: 1;
       &.center {
         max-width: 32em;
         margin: 0 auto;
