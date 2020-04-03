@@ -3,8 +3,10 @@
 
   export let segment;
 
-  let left = true;
-  let top = !left;
+  let left = true;  // do you want the navigation on the left side
+  let top = !left;  // nav cannot be on the top if its on the left
+  let center = !left;  // main content will be block-centered under a top nav
+
   let navitems = [
     {rel: 'prefetch', route: 'about', label: 'About'},
     {rel: 'prefetch', route: 'blog', label: 'Blog'},
@@ -29,13 +31,17 @@
 
     main {
       padding: 2em;
+      &.center {
+        max-width: 32em;
+        margin: 0 auto;
+      }
     }
   }
 </style>
 <div class="container" class:left class:top>
   <Nav {segment} {left} {top} {navitems}/>
 
-  <main>
+  <main class:center>
     <slot></slot>
   </main>
 </div>
