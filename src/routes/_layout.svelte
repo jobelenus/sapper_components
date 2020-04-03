@@ -13,10 +13,6 @@
 </script>
 
 <style type="text/scss">
-  :global(div.container > nav.left) {
-    max-width: 8em;
-  }
-
   div.container {
     display: flex;
     min-height: 100vh;
