@@ -51,7 +51,7 @@
 
 	nav {
 		font-weight: 600;
-    background: var(--dark-background);
+    background: var(--dark-saturated-color);
     color: var(--text-on-dark);
 
     ul {
