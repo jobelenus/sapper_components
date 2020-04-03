@@ -28,7 +28,7 @@
   }
 
   nav.left {
-    max-width: 8em;
+    width: 8em;
     padding: 1em 0 1em 1em;
     border-right: 1px solid var(--dark-border);
 
