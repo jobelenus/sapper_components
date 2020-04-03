@@ -3,7 +3,7 @@
 
   export let segment;
   export let left = false;
-  export let top = true;
+  export let top = !left;
 </script>
 
 <style type="text/scss">
@@ -33,14 +33,30 @@
     color: var(--text-on-light);
   }
 
-	main {
-		max-width: 56em;
-	  padding: 2em;
-	}
+  div.container {
+    display: flex;
+    min-height: 100vh;
+
+    main {
+      padding: 2em;
+    }
+  }
+
+  div.container.left {
+    flex-direction: row;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  div.container.top {
+    flex-direction: column;
+  }
+  
 </style>
+<div class="container" class:left class:top>
+  <Nav {segment} {left} {top}/>
 
-<Nav {segment} {left} {top}/>
-
-<main>
-	<slot></slot>
-</main>
+  <main>
+    <slot></slot>
+  </main>
+</div>
