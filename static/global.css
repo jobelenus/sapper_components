@@ -1,11 +1,10 @@
 :root {
-  --dark-background: #252e42;
   --dark-border: #333;
-  --text-on-dark: white;
+  --text-on-dark: #eee;
 
-  --light-background: white;
-  --light-border: #ededed;
-  --text-on-light: black;
+  --light-background: #eee;
+  --light-border: #ddd;
+  --text-on-light: #222;
 
   /* working with a 5 color palette */
   --dark-saturated-color: #351d31;
