@@ -1,5 +1,6 @@
-/* From utopia.fyi */
+/* From Andy Bell's utopia.fyi */
 
+/* start generated css */
 :root {
   --fluid-min-width: 320;
   --fluid-max-width: 1140;
@@ -73,6 +74,7 @@
   --fluid-max-size-5: (var(--fluid-max-size) * var(--fluid-max-scale-4)) / 16;
   --step-5: calc(((var(--fluid-min-size-5) * 1rem) + (var(--fluid-max-size-5) - var(--fluid-min-size-5)) * var(--fluid-bp)));
 }
+/* end generated css */
 
 body {
   font-size: 1.1rem;
