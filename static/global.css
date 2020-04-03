@@ -1,3 +1,30 @@
+:root {
+  --dark-background: #252e42;
+  --dark-border: #333;
+  --text-on-dark: white;
+
+  --light-background: white;
+  --light-border: #ededed;
+  --text-on-light: black;
+
+  /* working with a 5 color palette */
+  --dark-saturated-color: #351d31;
+  --dark-muted-color:#684a66;
+  --highlight-color:#f55951;
+  --light-saturated-color:#edd2cb;
+  --light-muted-color:#f1e8e6;
+  /* and a designated success and error color */
+  --success-color:#1aa90a;
+  --error-color:#a9120a;
+}
+
+body {
+  background: var(--light-background);
+  color: var(--text-on-light);
+}
+
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
