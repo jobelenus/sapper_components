@@ -1,54 +1,58 @@
 <script>
-	export let segment;
+  export let segment;
+  export let top = false;
+  export let left = false;
 </script>
 
-<style>
+<style type="text/scss">
+  nav.top {
+    border-bottom: 1px solid var(--dark-border);
+    ul {
+      flex-direction: row;
+    }
+  }
+
+  nav.left {
+    border-right: 1px solid var(--dark-border);
+    ul {
+      flex-direction: column;
+    }
+  }
+
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
-	}
+		font-weight: 600;
+    padding: 0 1em;
+    background: var(--dark-background);
+    color: var(--text-on-dark);
 
-	ul {
-		margin: 0;
-		padding: 0;
-	}
+    ul {
+      display: flex;
 
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
+      a {
+        text-decoration: none;
+        padding: 1em 0.5em;
+        display: block;
 
-	li {
-		display: block;
-		float: left;
-	}
+        &[aria-current] {
+          position: relative;
+          display: inline-block;
 
-	[aria-current] {
-		position: relative;
-		display: inline-block;
-	}
-
-	[aria-current]::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+          &::after {
+            position: absolute;
+            content: '';
+            width: calc(100% - 1em);
+            height: 5px;
+            background-color: var(--highlight-color);
+            display: block;
+            bottom: -1px;
+          }
+        }
+      }
+    }
 	}
 </style>
 
-<nav>
+<nav class:left class:top>
 	<ul>
 		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
 		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>
