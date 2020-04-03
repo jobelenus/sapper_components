@@ -76,3 +76,57 @@ table {
 a {
 	color: inherit;
 }
+
+/**
+* Utilities
+*/
+
+.shadow {
+  --shadow-base-right: 1px;
+  --shadow-base-bottom: 3px;
+  --shadow-multiplier: 1; 
+  --shadow-hover-multiplier: 1;
+  box-shadow: 0 calc(var(--shadow-multiplier) * var(--shadow-hover-multiplier) * var(--shadow-base-right)) calc(var(--shadow-multiplier) * var(--shadow-hover-multiplier) * var(--shadow-base-bottom)) rgba(0,0,0,0.12),
+    0 calc(var(--shadow-multiplier) * var(--shadow-hover-multiplier) * var(--shadow-base-right)) calc(var(--shadow-multiplier) * var(--shadow-hover-multiplier) * var(--shadow-base-bottom)) rgba(0,0,0,0.24);
+}
+.shadow.depth2 {
+  --shadow-multiplier: 2; 
+}
+.shadow.depth3 {
+  --shadow-multiplier: 3; 
+}
+.shadow.depth4 {
+  --shadow-multiplier: 4; 
+}
+.shadow.hover:hover {
+  --shadow-hover-multiplier: 2;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.rounded {
+  --radius: 5px;
+  border-radius: var(--radius);
+}
+
+.switcher {
+  --measure: 768px;
+  --s1: 1.5em;
+}
+
+.switcher > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc((var(--s1) / 2) * -1);
+}
+
+.switcher > * > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--measure) - (100% - var(--s1))) * 999);
+  margin: calc(var(--s1) / 2);
+}
+
+/* Unfortunately there isn't support to get this rule in a global place with variables in the selector, the n+4 */
+.switcher.three-wide > * > :nth-last-child(n+4),
+.switcher.three-wide > * > :nth-last-child(n+4) ~ * {
+  flex-basis: 100%;
+}
