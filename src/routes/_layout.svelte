@@ -8,10 +8,15 @@
   let navitems = [
     {rel: 'prefetch', route: 'about', label: 'About'},
     {rel: 'prefetch', route: 'blog', label: 'Blog'},
+    {route: 'https://google.com', label: 'Find something on google'}
   ] 
 </script>
 
 <style type="text/scss">
+  :global(div.container > nav.left) {
+    max-width: 8em;
+  }
+
   div.container {
     display: flex;
     min-height: 100vh;
