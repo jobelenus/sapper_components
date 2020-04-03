@@ -2,8 +2,13 @@
 	import Nav from '../components/Nav.svelte';
 
   export let segment;
-  export let left = true;
-  export let top = !left;
+
+  let left = true;
+  let top = !left;
+  let navitems = [
+    {rel: 'prefetch', route: 'about', label: 'About'},
+    {rel: 'prefetch', route: 'blog', label: 'Blog'},
+  ] 
 </script>
 
 <style type="text/scss">
@@ -27,7 +32,7 @@
   }
 </style>
 <div class="container" class:left class:top>
-  <Nav {segment} {left} {top}/>
+  <Nav {segment} {left} {top} {navitems}/>
 
   <main>
     <slot></slot>

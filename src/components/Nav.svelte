@@ -1,7 +1,10 @@
 <script>
   export let segment;
+
   export let top = false;
   export let left = false;
+  export let navitems = [];
+  export let home_label = 'Home';
 </script>
 
 <style type="text/scss">
@@ -67,11 +70,9 @@
 
 <nav class:left class:top>
 	<ul>
-		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
-		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a></li>
+		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>{home_label}</a></li>
+    {#each navitems as item}
+		  <li><a rel={item.rel} aria-current='{segment === item.route ? "page" : undefined}' href='{item.route}'>{item.label}</a></li>
+    {/each}
 	</ul>
 </nav>
