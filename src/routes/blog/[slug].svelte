@@ -50,15 +50,15 @@
 
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
-	}
+  }
 </style>
 
 <svelte:head>
 	<title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
-<div class='content'>
+<article class='flow'>
+  <h1>{post.title}</h1>
+  
 	{@html post.html}
-</div>
+</article>

@@ -31,9 +31,13 @@
     main {
       padding: 2em;
       flex-grow: 1;
-      &.center {
+      :global(article) {
         max-width: 32em;
-        margin: 0 auto;
+      }
+      &.center {
+        :global(article) {
+          margin: 0 auto;
+        }
       }
     }
   }
