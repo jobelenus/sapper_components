@@ -20,13 +20,32 @@ const done = () => {
 </script>
 
 <style type="text/scss">
+.center {
+  width: 20em;
+  margin: 0 auto;
+  text-align: center;
+  
+  h1 {
+    margin-bottom: .75em
+  }
+}
 .step {
   label, input {
     display: block;
+    text-align: left;
+    width: 100%;
+  }
+  button {
+    margin-top: 1rem;
   }
 }
 </style>
 
+<svelte:head>
+	<title>Login</title>
+</svelte:head>
+
+<div class="center">
 <h1>Login</h1>
 <Steps step_functions="{[validate_email, validate_pwd, validate_2fa]}" done={done}>
   <div class="step" slot="step0" let:submit>
@@ -63,3 +82,4 @@ const done = () => {
     </div>
   </div>
 </Steps>
+</div>
