@@ -44,9 +44,13 @@
   }
 </style>
 <div class="container" class:left class:top>
+  {#if segment === 'login'}
+  <slot></slot>
+  {:else}
   <Nav {segment} {left} {top} {navitems}/>
 
   <main class:center>
     <slot></slot>
   </main>
+  {/if}
 </div>
