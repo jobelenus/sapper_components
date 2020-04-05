@@ -21,12 +21,12 @@ const validate = ($fields, $errors) => {
 <style type="text/scss">
 .address_form {
   margin-top: 1em;
-  max-width: 25em;
+  max-width: 30em;
   font-size: .8em;
 
   :global(form) {
     display: grid;
-    grid-gap: 2%;
+    grid-gap: 10px;
     grid-row-gap: 1.1em;
     grid-template-columns: 60% 15% 25%;
     grid-template-rows: auto;
@@ -34,7 +34,7 @@ const validate = ($fields, $errors) => {
       "full_name full_name full_name"
       "address address address"
       "city state zip"
-      "save . .";
+      "save save save";
 
     :global(fieldset) {  /* display: grid doesn't work on fieldsets in chrome */
       display: contents;
@@ -44,6 +44,7 @@ const validate = ($fields, $errors) => {
       display: block;
       :global(label, input) {
         display: block;
+        width: 100%; /* unsure why I need this? */ 
       }
     }
   }
