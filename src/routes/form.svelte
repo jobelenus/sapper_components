@@ -44,7 +44,10 @@ const validate = ($fields, $errors) => {
       display: block;
       :global(label, input) {
         display: block;
-        width: 100%; /* unsure why I need this? */ 
+        width: 100%; /* unsure why I need this?
+                        100% is actually larger than the container
+                        99% is perfect, but then the third line doesn't match up?!
+                      */ 
       }
     }
   }
