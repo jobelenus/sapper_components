@@ -1,6 +1,6 @@
 <script>
 import Steps from '../../components/Steps.svelte'
-import { fly, fade } from 'svelte/transition'
+import { fly } from 'svelte/transition'
 
 let email, pwd, code
 
@@ -21,17 +21,16 @@ const done = () => {
 
 <style type="text/scss">
 .step {
-  display: none;
-  &.active {
+  label, input {
     display: block;
   }
 }
 </style>
 
+<h1>Login</h1>
 <Steps step_functions="{[validate_email, validate_pwd, validate_2fa]}" done={done}>
-  <div class="step" slot="step0" let:submit let:active class:active>
-    <div transition:fade>
-      <h1>Login</h1>
+  <div class="step" slot="step0" let:submit>
+    <div out:fly="{{duration:150, x: -25}}" in:fly="{{delay: 150, duration: 150, x: 25}}">
       <label for="email">Email</label>
       <form on:submit|preventDefault={submit}>
         <input id="email" bind:value="{email}" required type="email" placeholder="john.snow@thewall.north">
@@ -39,8 +38,8 @@ const done = () => {
       </form>
     </div>
   </div>
-  <div class="step" slot="step1" let:submit let:active class:active>
-    <div transition:fade>
+  <div class="step" slot="step1" let:submit>
+    <div out:fly="{{duration:150, x: -25}}" in:fly="{{delay: 150, duration: 150, x: 25}}">
       <form on:submit|preventDefault={submit}>
         <label for="pwd">Password</label>
         <input id="pwd" bind:value="{pwd}" required type="password">
@@ -48,8 +47,8 @@ const done = () => {
       </form>
     </div>
   </div>
-  <div class="step" slot="step2" let:submit let:active class:active>
-    <div transition:fade>
+  <div class="step" slot="step2" let:submit>
+    <div out:fly="{{duration:150, x: -25}}" in:fly="{{delay: 150, duration: 150, x: 25}}">
       <form on:submit|preventDefault={submit}>
         <p>You should receive a code, enter it here to continue</p>
         <label for="code">Code</label>
@@ -58,8 +57,8 @@ const done = () => {
       </form>
     </div>
   </div>
-  <div class="step" slot="done" let:submit let:active class:active>
-    <div transition:fade>
+  <div class="step" slot="done" let:submit>
+    <div out:fly="{{duration:150, x: -25}}" in:fly="{{delay: 150, duration: 150, x: 25}}">
       <h3>Thank, you</h3>
     </div>
   </div>

@@ -116,6 +116,10 @@ a {
   display: table;
 }
 
+form input {
+  box-sizing: border-box;
+}
+
 form .error {
   background-color: var(--light-muted-color);
   color: var(--error-color);

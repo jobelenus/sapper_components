@@ -36,10 +36,22 @@ const submit = () => {
 
 <section>
   <slot name="controls" back={back} reset={reset}></slot>  <!-- if you want a consistent back button placement, or restart functionality -->
-  <slot name="step0" submit={submit} active={!is_done && current_step===0}></slot>
-  <slot name="step1" submit={submit} back={back} active={!is_done && current_step===1}></slot>
-  <slot name="step2" submit={submit} back={back} active={!is_done && current_step===2}></slot>
-  <slot name="step3" submit={submit} back={back} active={!is_done && current_step===3}></slot>
-  <slot name="step4" submit={submit} back={back} active={!is_done && current_step===4}></slot>
-  <slot name="done" reset={reset} active={is_done}></slot>
+  {#if !is_done && current_step===0}
+  <slot name="step0" submit={submit}></slot>
+  {/if}
+  {#if !is_done && current_step===1}
+  <slot name="step1" submit={submit} back={back}></slot>
+  {/if}
+  {#if !is_done && current_step===2}
+  <slot name="step2" submit={submit} back={back}></slot>
+  {/if}
+  {#if !is_done && current_step===3}
+  <slot name="step3" submit={submit} back={back}></slot>
+  {/if}
+  {#if !is_done && current_step===4}
+  <slot name="step4" submit={submit} back={back}></slot>
+  {/if}
+  {#if is_done}
+  <slot name="done" reset={reset}></slot>
+  {/if}
 </section>
