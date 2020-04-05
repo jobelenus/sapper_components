@@ -47,5 +47,10 @@
     I added a simple form component.
     I added a Steps component to do things in a specific order, like a "wizard".
     I created a login page with the steps component (for the curious, I am mimicing Mailgun's login flow).
+    I want to create a hamburger menu so both nav orientations are more friendly on mobile. And because apparently everyone needs a hamburger menu
+  </p>
+  <p>
+    I want to thank the Svelte community for their help when something wasn't working quite right.
+    I want to thank Andy Bell, whose CSS was a large inspiration and source for me on this project. Seriously, go buy <a href="http://every-layout.dev">Every Layout</a>.
   </p>
 </article>
