@@ -10,6 +10,7 @@
   let navitems = [
     {rel: 'prefetch', route: 'about', label: 'About'},
     {rel: 'prefetch', route: 'blog', label: 'Blog'},
+    {rel: 'prefetch', route: 'form', label: 'Example Form'},
   ] 
 </script>
 

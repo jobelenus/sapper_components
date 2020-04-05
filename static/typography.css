@@ -84,6 +84,10 @@ body {
   line-height: 1.4;
 }
 
+input, select, button {
+  font-size: var(--step--1);
+}
+
 h1,
 h2,
 h3,
