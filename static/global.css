@@ -109,25 +109,8 @@ a {
   border-radius: var(--radius);
 }
 
-.switcher {
-  --measure: 768px;
-  --s1: 1.5em;
-}
-
-.switcher > * {
-  display: flex;
-  flex-wrap: wrap;
-  margin: calc((var(--s1) / 2) * -1);
-}
-
-.switcher > * > * {
-  flex-grow: 1;
-  flex-basis: calc((var(--measure) - (100% - var(--s1))) * 999);
-  margin: calc(var(--s1) / 2);
-}
-
-/* Unfortunately there isn't support to get this rule in a global place with variables in the selector, the n+4 */
-.switcher.three-wide > * > :nth-last-child(n+4),
-.switcher.three-wide > * > :nth-last-child(n+4) ~ * {
-  flex-basis: 100%;
+.sized_components::after {  /* clearfix */
+  content: "";
+  clear: both;
+  display: table;
 }

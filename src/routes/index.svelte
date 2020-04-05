@@ -1,22 +1,28 @@
 <style type="text/scss">
-  .switcher.second {
-    /* example of overriding layout for a container */
-    --measure: 340px;
-    --s1: .5em;
+  .sized_components {
+    margin-top: 1.5em;
 
-    .card.rounded {
-      /* example of overriding a radius */
-      --radius: 30px;
+    .card {
+      margin: 10px;
+      min-height: 200px;
+      float: left;
+      border: 1px solid var(--light-border);
+      background: var(--light-muted-color);
     }
   }
-  .switcher {
-    margin-top: 1.5em;
+  .sized_components.first {
+    div.card {
+      width: 280px;
+    }
   }
-  .card {
-    float: left;
-    height: 5em;
-    border: 1px solid var(--light-border);
-    background: var(--light-muted-color);
+  .sized_components.second {
+    div.card {
+      width: 480px;
+      &.rounded {
+        /* example of overriding a radius */
+        --radius: 30px;
+      }
+    }
   }
 </style>
 
@@ -26,20 +32,16 @@
 
 <h1>Dashboard Example</h1>
 
-<div class="switcher first">
-  <div>
-    <div class="card rounded shadow hover"></div>
-    <div class="card rounded shadow depth2 hover"></div>
-    <div class="card rounded shadow depth3 hover"></div>
-    <div class="card rounded shadow depth4"></div>
-  </div>
-</div>
+<section class="sized_components first">
+  <div class="card rounded shadow hover"></div>
+  <div class="card rounded shadow depth2 hover"></div>
+  <div class="card rounded shadow depth3 hover"></div>
+  <div class="card rounded shadow depth4"></div>
+</section>
 
-<div class="switcher second three-wide">
-  <div>
-    <div class="card rounded shadow hover"></div>
-    <div class="card shadow depth2 hover"></div>
-    <div class="card shadow depth3 hover"></div>
-    <div class="card shadow depth4"></div>
-  </div>
-</div>
+<section class="sized_components second">
+  <div class="card rounded shadow hover"></div>
+  <div class="card shadow depth2 hover"></div>
+  <div class="card shadow depth3 hover"></div>
+  <div class="card shadow depth4"></div>
+</section>
