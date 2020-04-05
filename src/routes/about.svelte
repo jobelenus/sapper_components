@@ -45,5 +45,7 @@
   <p>
     Then I created simple mixins for common look &amp; feel elements like rounded borders and drop shadows.
     I added a simple form component.
+    I added a Steps component to do things in a specific order, like a "wizard".
+    I created a login page with the steps component (for the curious, I am mimicing Mailgun's login flow).
   </p>
 </article>
