@@ -1,8 +1,17 @@
+<script context="module">
+    export function preload(page, { user_data }) {  // this matches the sapper.middleware object key
+      return { user_data };
+    };
+</script>
+
 <script>
-	import Nav from '../components/Nav.svelte';
+  import { onMount } from 'svelte';
+  import Nav from '../components/Nav.svelte';
+  import { stores } from '@sapper/app';
+  const { session } = stores();
+  export let user_data;
 
   export let segment;
-
   let left = true;  // do you want the navigation on the left side
   let top = !left;  // nav cannot be on the top if its on the left
   let center = !left;  // main content will be block-centered under a top nav
@@ -12,6 +21,13 @@
     {rel: 'prefetch', route: 'blog', label: 'Blog'},
     {rel: 'prefetch', route: 'form', label: 'Example Form'},
   ] 
+
+  console.log("USER DATA", user_data)
+  onMount(() => {
+    if (!user_data && window.location.pathname != '/login') {
+      window.location = '/login'
+    }
+  })
 </script>
 
 <style type="text/scss">
