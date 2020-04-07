@@ -7,8 +7,6 @@
 <script>
   import { onMount } from 'svelte';
   import Nav from '../components/Nav.svelte';
-  import { stores } from '@sapper/app';
-  const { session } = stores();
   export let user_data;
 
   export let segment;
@@ -22,7 +20,6 @@
     {rel: 'prefetch', route: 'form', label: 'Example Form'},
   ] 
 
-  console.log("USER DATA", user_data)
   onMount(() => {
     if (!user_data && window.location.pathname != '/login') {
       window.location = '/login'
