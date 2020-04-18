@@ -10,9 +10,12 @@
   export let user_data;
 
   export let segment;
-  let left = true;  // do you want the navigation on the left side
-  let top = !left;  // nav cannot be on the top if its on the left
-  let center = !left;  // main content will be block-centered under a top nav
+  let left, top, center
+  left = true;  // do you want the navigation on the left side
+  $: {  // reactive statement
+    top = !left;  // nav cannot be on the top if its on the left
+    center = !left;  // main content will be block-centered under a top nav
+  }
 
   let navitems = [
     {rel: 'prefetch', route: 'about', label: 'About'},
@@ -64,6 +67,10 @@
 
   <main class:center>
     <slot></slot>
+
+    <p style="margin-top: 2rem;">
+      <button on:click="{() => left = !left}">Flip layout</button>
+    </p>
   </main>
   {/if}
 </div>

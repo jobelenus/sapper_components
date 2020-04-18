@@ -3,7 +3,7 @@
 </svelte:head>
 
 <article class="flow">
-  <h1>About this site</h1>
+  <h1>About this project</h1>
   <h2>What is this?</h2>
   <p>
     I am putting this repository together as an example of what modern front-end development can look like.
