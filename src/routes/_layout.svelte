@@ -7,6 +7,7 @@
 <script>
   import { onMount } from 'svelte';
   import Nav from '../components/Nav.svelte';
+  import Toast from '../components/Toast.svelte';
   export let user_data;
 
   export let segment;
@@ -46,6 +47,7 @@
     }
 
     main {
+      position: relative; /* for toast position absolute, so toast doesn't run over the nav when layout !left */
       padding: 2em;
       flex-grow: 1;
       :global(article) {
@@ -71,6 +73,8 @@
     <p style="margin-top: 2rem;">
       <button on:click="{() => left = !left}">Flip layout</button>
     </p>
+
+    <Toast center={true} zIndex={1000}></Toast>
   </main>
   {/if}
 </div>

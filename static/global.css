@@ -126,3 +126,25 @@ form .error {
   border: 2px solid var(--error-color);
   padding: .5em;
 }
+
+.toasts {
+  font-size: .8rem;
+}
+
+.toasts li {
+  background-color: var(--light-background);
+  padding: .5rem;
+  border: 1px solid var(--dark-border);
+}
+.toasts li.success {
+  border-color: var(--success-color);
+}
+.toasts li.success .toast-header {
+  color: var(--success-color);
+}
+.toasts li.error {
+  border-color: var(--error-color);
+}
+.toasts li.success .toast-error {
+  color: var(--error-color);
+}
