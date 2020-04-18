@@ -74,7 +74,7 @@
       <button on:click="{() => left = !left}">Flip layout</button>
     </p>
 
-    <Toast center={true} zIndex={1000}></Toast>
+    <Toast center={true} zIndex={1000} width={"24rem"}></Toast>
   </main>
   {/if}
 </div>
