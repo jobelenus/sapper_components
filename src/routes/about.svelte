@@ -39,17 +39,20 @@
   </p>
   <p>
     Then I went to work on creating a layout with Flexbox that can swap orientation based on one JS variable.
-    I updated the Nav component to be more what developers are used to. I've tried to encapsulate what <i>should be</i>
+    I updated the Nav component to be more what developers are used to. I've tried to encapsulate the CSS that <i>should be</i>
     and let everything else that <i>shouldn't be</i> cascade.
   </p>
   <p>
-    Then I created simple mixins for common look &amp; feel elements like rounded borders and drop shadows.
-    I added a form component.
-    I added a Steps component to do things in a specific order, like a "wizard".
-    I created a login page with the steps component (for the curious, I am mimicing Mailgun's login flow).
-    I created a Toast component for notifications.
-    I want to create a hamburger menu so both nav orientations are more friendly on mobile. And because apparently everyone needs a hamburger menu
+    Here is what I've built so far:
   </p>
+  <ol>
+    <li>I created simple mixins for common look &amp; feel elements like rounded borders and drop shadows.</li>
+    <li>I added a form component.</li>
+    <li>I added a Steps component to do things in a specific order, like a "wizard".</li>
+    <li>I created a login page with the steps component (for the curious, I am mimicing Mailgun's login flow).</li>
+    <li>I created a Toast component for notifications.</li>
+    <li>I want to create a hamburger menu so both nav orientations are more friendly on mobile. And because apparently everyone needs a hamburger menu</li>
+  </ol>
   <p>
     I want to thank the Svelte community for their help when something wasn't working quite right.
     I want to thank Andy Bell, whose CSS was a large inspiration and source for me on this project. Seriously, go buy <a href="http://every-layout.dev">Every Layout</a>.

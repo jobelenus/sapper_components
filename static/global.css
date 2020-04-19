@@ -78,6 +78,13 @@ a {
 	color: inherit;
 }
 
+article ol {
+  margin-left: 2em;
+}
+article ol li {
+  list-style: decimal;
+}
+
 /**
 * Utilities
 */
