@@ -1,20 +1,10 @@
 <script context="module">
-let toasts = [
-  {label: 'Success', message: 'Hello, World!', success: true}
-]
-let idx = toasts.length
-
-export function toast ({label, message}) {
-  toasts = [...toasts, ({idx, label, message})]
-  idx++
-}
-export function clear () {
-  toasts = []
-  idx = 0
-}
+import {toasts} from "./ToastStore.js"
 </script>
 
 <script>
+import { fly } from 'svelte/transition'
+import { flip } from 'svelte/animate';
 export let left, center, right, zIndex, width
 
 </script>
@@ -44,8 +34,8 @@ export let left, center, right, zIndex, width
 </style>
 
 <ul class="toasts" class:left class:center class:right style="--zIndex: {zIndex}; --width: {width}">
-  {#each toasts as { label, message, success, error, idx } (idx)}
-  <li role="alert" aria-live="assertive" aria-atomic="true" class="toast" class:success class:error>
+  {#each $toasts as { label, message, success, error, idx } (idx)}
+  <li animate:flip transition:fly={{y: -75, duration: 250}} role="alert" aria-live="assertive" aria-atomic="true" class="toast" class:success class:error>
     <div class="toast-header">{label}</div>
     <div class="toast-body">{message}</div>
   </li>
